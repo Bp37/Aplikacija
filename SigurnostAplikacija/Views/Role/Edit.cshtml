@@ -1,0 +1,16 @@
+﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) 
+{
+ 
+    @Html.HiddenFor(m => m.Id)
+    @Html.TextBoxFor(m => m.Name)
+
+    <input type="submit" value="Promijeni naziv role" />
+}
+

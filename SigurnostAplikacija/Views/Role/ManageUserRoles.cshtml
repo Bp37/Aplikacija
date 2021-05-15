@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "ManageUserRoles";
+}
+
+<h2>ManageUserRoles</h2>
+
+
+
+<h2>Role Add to User</h2>
+@using (Html.BeginForm("RoleAddToUser", "Role"))
+{
+    <label>Username:</label>
+    @Html.TextBox("UserName")
+    <br />
+    <label>Role name:</label>
+    @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)
+
+    <input type="submit" value="Save" />
+}
+
+<h2>Get Roles for a User</h2>
+@using (Html.BeginForm("GetRoles", "Role"))
+{
+    <label>User:</label>
+    @Html.TextBox("UserName")
+
+    <input type="submit" value="Get Roles for this user" />
+
+}
+
+@if (ViewBag.RolesForThisUser != null)
+{
+    <div style="background-color:yellow;">
+        <h3>Role za korisnika</h3>
+        <ul>
+            @foreach (var item in ViewBag.RolesForThisUser)
+            {
+                <li>
+                    @item
+                </li>
+            }
+        </ul>
+    </div>
+}
+
+<h2>Delete a User from a Role</h2>
+
+@using (Html.BeginForm("DeleteRoleForUser", "Role"))
+{
+    <label>Username:</label>
+    @Html.TextBox("UserName")
+    <br />
+    <label>Role name:</label>
+    @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)
+
+    <input type="submit" value="Delete this user from Role" />
+}

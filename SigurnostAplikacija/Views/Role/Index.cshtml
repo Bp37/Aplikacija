@@ -1,0 +1,18 @@
+﻿@model List<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<ul>
+    @foreach (var rol in Model)
+    {
+    <li>
+        @rol.Name |
+        @Html.ActionLink("Edit", "Edit", new { roleName = rol.Name })
+        |
+        @Html.ActionLink("Delete", "Delete", new { roleName = rol.Name })
+    </li>
+    }
+</ul>
